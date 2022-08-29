@@ -41,3 +41,19 @@ predict = LR_instance.predict(x_test)
 print(y_test.head())  # Actual values
 print(predict[0:5])  # Predicted values
 print("Error:", mean_squared_error(y_test, predict))
+
+# ________Model 3___________
+
+# Chenging the indipendent veriable and then predicting the values with multipal features
+# Notice the Error
+
+# 'dis'=35  'nox'=34  'rm'=31 'rad'=35 'tax'=33 'ptratio'=28
+x = Boston[['ptratio', 'rm']]
+y = Boston[['medv']]
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3)
+LR_instance = LinearRegression()  # LinearRegression instance will be cr
+LR_instance.fit(x_train, y_train)  # Fitting the model on Training data
+predict = LR_instance.predict(x_test)
+print(y_test.head())  # Actual values
+print(predict[0:5])  # Predicted values
+print("Error:", mean_squared_error(y_test, predict))
